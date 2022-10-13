@@ -1,0 +1,93 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      .tab {
+       
+        border: none;
+        background-color: #f1f1f1;
+        width: 100%;
+      }
+
+      .tab button {
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 10px 10px;
+        font-size: 17px;
+        margin-right: 10px;
+      }
+
+      .tab button:hover {
+        background-color: #f1f1f1;
+      }
+
+      .tab button.active {
+        border-bottom: 5px solid purple;
+      }
+      .active {
+        border-bottom: 5px solid purple;
+        background-color: #f1f1f1;
+      }
+
+      .tabcontent {
+        display: none;
+        padding: 6px 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="tab">
+      <button class="tablinks" onclick="opentasks(event, 'Personal')">
+        Personal
+      </button>
+      <button class="tablinks" onclick="opentasks(event, 'Security')">
+        Security
+      </button>
+      <button class="active">Notifications</button>
+      <button class="tablinks" onclick="opentasks(event, 'Connect')">
+        Connect
+      </button>
+    </div>
+
+    <div id="Personal" class="tabcontent">
+      <p>
+        1.There are many variations of passages of Lorem Ipsum available, but the
+        majority have suffered alteration in some form, by injected humour,
+        <br />
+        or randomised words which don't look even slightly believable
+      </p>
+    </div>
+    <div id="Security" class="tabcontent">
+      <p>
+        2.There are many variations of passages of Lorem Ipsum available, but the
+        majority have suffered alteration in some form, by injected humour,
+        <br />or randomised words which don't look even slightly believable
+      </p>
+    </div>
+    <div id="Connect" class="tabcontent">
+      <p>
+        3.There are many variations of passages of Lorem Ipsum available, but the
+        majority have suffered alteration in some form, by injected humour,
+        <br />or randomised words which don't look even slightly believable
+      </p>
+    </div>
+
+    <script>
+      function opentasks(evt, task) {
+        var i, tabcontent, tablinks;
+        tabcont = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcont.length; i++) {
+          tabcont[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(task).style.display = "block";
+        evt.currentTarget.className += " active";
+      }
+    </script>
+  </body>
+</html>
